@@ -1,0 +1,6 @@
+{
+  "name": "Grantha OCR Converter",
+  "description": "An application to upload images, perform OCR, and convert the recognized text into Tamil Grantha script using the Gemini API.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
