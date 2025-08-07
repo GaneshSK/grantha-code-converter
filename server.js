@@ -57,11 +57,11 @@ app.post('/api/generate', async (req, res) => {
       },
     };
 
-    const systemInstruction = `
-        You are an expert in ancient scripts. Your task is to perform Optical Character Recognition (OCR) on the provided image to extract any text.
-        Then, you must transliterate the recognized text into Tamil Grantha script.
-        The output must be a JSON object containing only the transliterated text.
-    `;
+    const textPart = {
+        text: "Perform Optical Character Recognition (OCR) on the provided image, then transliterate the recognized text into Tamil Grantha script."
+    };
+
+    const systemInstruction = `You are an expert in ancient scripts. Your task is to perform OCR and transliteration. The output must be a JSON object containing only the transliterated text in the 'grantha_script' field.`;
 
     const schema = {
         type: Type.OBJECT,
@@ -76,7 +76,7 @@ app.post('/api/generate', async (req, res) => {
 
     const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
-        contents: { parts: [imagePart] },
+        contents: { parts: [imagePart, textPart] },
         config: {
             systemInstruction,
             responseMimeType: 'application/json',
