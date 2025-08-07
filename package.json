@@ -4,7 +4,7 @@
   "description": "An application to upload images, perform OCR, and convert the recognized text into Tamil Grantha script using the Gemini API.",
   "main": "server.js",
   "scripts": {
-    "build": "mkdir -p public && cp index.html public/ && esbuild index.tsx --bundle --platform=browser --outfile=public/bundle.js --external:react --external:react/* --external:react-dom/*",
+    "build": "mkdir -p public && cp index.html public/ && esbuild index.tsx --bundle --platform=browser --format=esm --outfile=public/bundle.js --external:react --external:react/* --external:react-dom/*",
     "start": "yarn build && node server.js"
   },
   "dependencies": {
